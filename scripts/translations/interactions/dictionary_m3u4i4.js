@@ -1,0 +1,47 @@
+var languages = {
+    'de' : {
+		'moduleName' : '3. Bewegungswahrnehmung',
+		'unitButton1' : 'Einheit 1',
+		'unitButton2' : 'Einheit 2',
+		'unitButton3' : 'Einheit 3',
+		'unitButton4' : 'Einheit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'pageTitle' : 'Kausalität und Anstoßeffekt',
+		'headline' : '3.4.4 Kausalität und Anstoßeffekt',
+        'instructions' : 'Sie sehen eine Reihe von ankommenden und abfahrenden Kraftfahrzeugen. Klicken Sie auf Start und verschieben Sie dann den Cursor, um den Zeitabstand oder die Verzögerung zwischen Ankunft und Abfahrt der Fahrzeuge zu variieren. Sie werden feststellen, dass diese Verzögerung entscheidend dafür ist, ob die Ankunft des zweiten Fahrzeugs die Abfahrt des ersten Fahrzeugs zu verursachen scheint. Welche Verzögerungen können den Eindruck von Kausalität erwecken? Was scheint die maximale Verzögerung zu sein, bei der ein Start beobachtet wird?',
+		'shareButton' : 'Teilen',
+		'shareHeadline' : 'Teile den aktuellen Zustand',
+		'shareCopyToClipboard' : 'Kopieren',
+		'shareConfirmation' : 'Kopieren des Links vom aktuellen Zustand war erfolgreich ✓',
+		'flashinglights' : 'ACHTUNG: SCHNELL WECHSELNDE LICHTER',
+		'delaySlider' : 'Verzögerung [S - W]',
+		'startButton' : 'Starten/Pausieren [E]',
+		'parameter' : 'Parameter'
+		
+	},
+    'en' : {
+		'moduleName' : '3. Perception of movement',
+		'unitButton1' : 'Unit 1',
+		'unitButton2' : 'Unit 2',
+		'unitButton3' : 'Unit 3',
+		'unitButton4' : 'Unit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'pageTitle' : 'Causality and the Launching Effect',
+		'headline' : '3.4.4 Causality and the Launching Effect',
+        'instructions' : 'You will see a series of motor vehicles arrive and depart. Click Start, then slide the cursor to vary the time interval or delay between arrival and departure of the vehicles. You will notice that this delay is crucial in determining whether the arrival of the second car appears to cause the departure of the first vehicle. Which delays can give rise to the perception of causality? What appears to be the maximum delay at which launching is observed?',
+		'shareButton' : 'Share',
+		'shareHeadline' : 'Share the current state',
+		'shareCopyToClipboard' : 'Copy',
+		'shareConfirmation' : 'Copying the link from the current state was successful ✓',
+		'flashinglights' : 'WARNING: FLASHING LIGHTS',
+		'delaySlider' : 'Delay [S - W]:',
+		'startButton' : 'Start/Pause [E]:',
+		'parameter' : 'Parameter'
+	}
+};

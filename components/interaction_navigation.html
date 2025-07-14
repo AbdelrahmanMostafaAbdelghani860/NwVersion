@@ -1,0 +1,97 @@
+<div class="navigation">
+    <div id="interaction_navigation_container" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5px; padding: 10px; width: 100%; min-height: 40px;"></div>
+</div>
+<script>
+    // Define openInteraction in global scope
+    window.openInteraction = function(interaction) {
+        const navUrlParameters = new URLSearchParams(window.location.search.replace(/&amp;/g, '&'));
+        const interactionUrl = '../interactions/interaction.html?module=' + navUrlParameters.get('module') + '&unit=' + navUrlParameters.get('unit') + '&interaction=' + interaction;
+        console.log('Navigating to:', interactionUrl);
+        window.location.href = interactionUrl;
+    };
+
+    // Initialize navigation immediately
+    (function initializeNavigation() {
+        console.log('Navigation component script started');
+        const navUrlParameters = new URLSearchParams(window.location.search.replace(/&amp;/g, '&'));
+        console.log('URL Parameters:', navUrlParameters.toString());
+
+        const numberOfInteractionsPerUnit = {
+            'm1u1': 6,
+            'm1u2': 5,
+            'm1u3': 2,
+            'm2u1': 3,
+            'm2u2': 6,
+            'm2u3': 3,
+            'm2u4': 4,
+            'm3u1': 4,
+            'm3u2': 4,
+            'm3u3': 2,
+            'm3u4': 4,
+            'm4u1': 4,
+            'm4u2': 6,
+            'm4u3': 3
+        };
+
+        const module = navUrlParameters.get('module');
+        const unit = navUrlParameters.get('unit');
+        console.log('Module:', module, 'Unit:', unit);
+
+        if (module && unit) {
+            const moduleUnit = 'm' + module + 'u' + unit;
+            const numberOfButtons = numberOfInteractionsPerUnit[moduleUnit];
+            console.log('Module Unit:', moduleUnit, 'Number of buttons:', numberOfButtons);
+
+            var interaction_navigation_bar = document.getElementById('interaction_navigation_container');
+            if (interaction_navigation_bar) {
+                console.log('Found navigation bar element');
+                interaction_navigation_bar.innerHTML = ''; // Clear existing buttons
+                
+                for (var i = 0; i < numberOfButtons; i++) {
+                    var input = document.createElement('input');
+                    input.setAttribute('class', 'navigation-button');
+                    input.setAttribute('type', 'button');
+                    input.setAttribute('value', (i + 1).toString());
+                    input.style.cssText = 'height: 40px; width: 40px; min-width: 40px; font-size: 16px; color: white; background: #23396e; border-radius: 50%; padding: 0; margin: 2px; border: 2px solid #23396e; cursor: pointer; transition: all 0.3s ease; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; font-weight: 500; text-align: center; outline: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: flex; justify-content: center; align-items: center; line-height: 1;';
+                    
+                    input.onmouseover = function() {
+                        this.style.background = '#2f4b92';
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                        this.style.borderColor = '#2f4b92';
+                    };
+                    
+                    input.onmouseout = function() {
+                        this.style.background = '#23396e';
+                        this.style.transform = 'none';
+                        this.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                        this.style.borderColor = '#23396e';
+                    };
+                    
+                    input.onclick = (function(index) {
+                        return function() {
+                            openInteraction(index + 1);
+                        };
+                    })(i);
+                    
+                    if (navUrlParameters.get('interaction') === (i + 1).toString()) {
+                        input.disabled = true;
+                        input.style.background = '#3b3b3b';
+                        input.style.cursor = 'default';
+                        input.style.boxShadow = 'none';
+                        input.style.transform = 'none';
+                        input.style.borderColor = '#3b3b3b';
+                        input.style.opacity = '0.8';
+                    }
+                    
+                    interaction_navigation_bar.appendChild(input);
+                    console.log('Added navigation button:', i + 1);
+                }
+            } else {
+                console.error('Navigation bar element not found!');
+            }
+        } else {
+            console.error('Module or unit parameters missing from URL!');
+        }
+    })();
+</script>

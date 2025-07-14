@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+
+  <head>
+    <title class="lang" key="pageTitle"></title>
+    <link rel="stylesheet" href="../css/interaction.css" />
+    <script
+      type="text/javascript"
+      src="../scripts/translations/interactions/dictionary_m1u1i3.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../scripts/interactions/m1u1i3.js"
+      defer
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="../scripts/language_selection.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="interaction_headline">
+      <h2 class="lang" key="headline"></h2>
+    </div>
+    <table class="interaction_table">
+      <tr>
+        <td class="interaction_description" colspan="3">
+          <a class="lang" id="instructionField" key="instructions"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="interaction_parameter_area">
+          <h3><a class="lang" key="parameter"></a></h3>
+          <div class="buttoncontainer">
+            <a class="lang" id="explanation" key="explanationButton"></a><br />
+            <input id="explanationButton" type="button" value="👁" />
+          </div>
+        </td>
+        <td class="interaction_canvas_area">
+          <div class="container">
+            <canvas class="interaction_canvas" id="interaction"></canvas>
+          </div>
+        </td>
+        <td class="interaction_right_area">
+          <h3></h3>
+          <div class="navigation" id="interaction_navigation"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

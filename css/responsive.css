@@ -1,0 +1,10 @@
+/* responsive.css */
+@media (max-width: 768px) {
+    .module-container {
+        padding: 5px;
+    }
+
+    .module-container h2 {
+        font-size: 1.3rem;
+    }
+}

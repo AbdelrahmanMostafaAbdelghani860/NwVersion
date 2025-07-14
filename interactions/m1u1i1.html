@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+
+  <head>
+    <style>
+      #reset,
+      .reset-button {
+        background-color: #2195f3dc; /* Blue */
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin-top: 5px;
+
+        padding: 8px 10px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #reset:hover,
+      .reset-button:hover {
+        background-color: #23396e; /* Darker Blue */
+      }
+
+      .reset-button svg {
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        fill: white;
+      }
+    </style>
+    <title class="lang" key="pageTitle"></title>
+    <link rel="stylesheet" href="../css/interaction.css" />
+    <script src="../scripts/interactions/m1u1i1.js" defer></script>
+    <script
+      type="text/javascript"
+      src="../scripts/language_selection.js"></script>
+    <script
+      type="text/javascript"
+      src="../scripts/translations/interactions/dictionary_m1u1i1.js"></script>
+  </head>
+
+  <body>
+    <div class="interaction_headline">
+      <h2 class="lang" key="headline"></h2>
+    </div>
+    <table class="interaction_table">
+      <tr>
+        <td class="interaction_description" colspan="3">
+          <a class="lang" key="instructions"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="interaction_parameter_area">
+          <h3><a class="lang" key="parameter"></a></h3>
+          <div class="slidecontainer">
+            <a class="lang" key="amountOfBallsSlider"></a><br />
+            <input
+              class="slider"
+              id="amountOfBalls"
+              type="range"
+              min="2"
+              max="20"
+              value="9" /><br />
+          </div>
+          <div class="slidecontainer">
+            <a class="lang" key="horizontalDistanceSlider"></a><br />
+            <input
+              class="slider"
+              id="horizontalDistance"
+              type="range"
+              min="300"
+              max="1000"
+              value="1000" /><br />
+          </div>
+          <div class="slidecontainer">
+            <a class="lang" key="verticalDistanceSlider"></a><br />
+            <input
+              class="slider"
+              id="verticalDistance"
+              type="range"
+              min="300"
+              max="1000"
+              value="1000" /><br />
+          </div>
+          <div class="buttoncontainer">
+            <a class="lang" key="resetButton"></a><br />
+            <button id="reset" class="reset-button" title="Reset">
+              <!-- Inline SVG refresh icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 6V3L8 7l4 4V8c2.76 0 5 2.24 5 5a5.002 5.002 0 0 1-9.9 1h-2.02a7.002 7.002 0 0 0 13.92-1c0-3.87-3.13-7-7-7z" />
+              </svg>
+            </button>
+          </div>
+        </td>
+        <td class="interaction_canvas_area">
+          <div class="container">
+            <canvas class="interaction_canvas" id="interaction"></canvas>
+          </div>
+        </td>
+        <td class="interaction_right_area">
+          <h3></h3>
+          <div class="navigation" id="interaction_navigation"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

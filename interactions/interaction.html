@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang='en'>
+<meta charset='utf-8'>
+    <link rel='icon' type='image/x-icon' href='../favicon.ico'>
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/interaction.css'>
+    <link rel='stylesheet' type='text/css' href='../css/components.css'>
+    <link rel='stylesheet' type='text/css' href='../css/theme.css'>
+    <script>
+        // Initialize URL parameters immediately
+        const urlParameters = new URLSearchParams(window.location.search.replace(/&amp;/g, '&'));
+        console.log('Initial URL Parameters:', urlParameters.toString());
+    </script>
+    <script src='../scripts/translations/dictionary_index.js'></script>
+    <script src='../scripts/language_selection.js'></script>
+    <script>
+        if (typeof languages === 'undefined') {
+            console.error('languages object not loaded');
+        }
+        if (typeof updateTranslations === 'undefined') {
+            console.error('updateTranslations function not loaded');
+        }
+    </script>
+    <script>
+        async function loadComponent(elementId, path) {
+            try {
+                console.log(`Loading component into element: ${elementId} from path: ${path}`);
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const html = await response.text();
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                
+                // Extract scripts before adding content to DOM
+                const scripts = tempDiv.getElementsByTagName('script');
+                const scriptContents = [];
+                
+                // First, add the HTML content
+                const targetElement = document.getElementById(elementId);
+                if (!targetElement) {
+                    console.error(`Target element with id '${elementId}' not found`);
+                    return;
+                }
+                targetElement.innerHTML = tempDiv.innerHTML;
+                console.log(`Added HTML content to element: ${elementId}`);
+                
+                // Then, execute scripts
+                for (let script of scripts) {
+                    if (script.src) {
+                        await new Promise((resolve, reject) => {
+                            const newScript = document.createElement('script');
+                            newScript.src = script.src;
+                            newScript.onload = resolve;
+                            newScript.onerror = reject;
+                            document.head.appendChild(newScript);
+                        });
+                    } else {
+                        const newScript = document.createElement('script');
+                        newScript.textContent = script.textContent;
+                        document.head.appendChild(newScript);
+                    }
+                }
+                console.log(`Executed all scripts for component: ${elementId}`);
+            } catch (error) {
+                console.error('Error loading component:', error);
+            }
+        }
+
+        // Initialize components as soon as possible
+        (async function initializeComponents() {
+            if (!localStorage.getItem('lang')) {
+                localStorage.setItem('lang', 'de');
+            }
+
+            try {
+                console.log('Starting to load components...');
+                // Load navigation first
+                await loadComponent('interaction_navigation', '../components/interaction_navigation.html');
+                console.log('Navigation loaded successfully');
+                
+                // Then load other components
+                await loadComponent('header_pc', '../components/header_bar.html');
+                console.log('Header loaded successfully');
+                
+                await loadComponent('unit_navigation', '../components/unit_navigation.html');
+                console.log('Unit navigation loaded successfully');
+                
+                await loadComponent('share-component', '../components/share_button.html');
+                console.log('Share component loaded successfully');
+                
+                // Load interaction content after navigation is set up
+                if (urlParameters.has('module') && urlParameters.has('unit') && urlParameters.has('interaction')) {
+                    console.log('Loading corresponding page for module ' + urlParameters.get('module') + ' | unit ' + urlParameters.get('unit') + ' | interaction ' + urlParameters.get('interaction') + '...');
+                    
+                    const interactionPath = 'm' + urlParameters.get('module') + 'u' + urlParameters.get('unit') + 'i' + urlParameters.get('interaction') + '.html';
+                    console.log('Loading interaction from:', interactionPath);
+                    try {
+                        const response = await fetch(interactionPath);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const html = await response.text();
+                        const interactionDiv = document.getElementById('interaction_html');
+                        interactionDiv.innerHTML = html;
+
+                        // Execute scripts from the loaded HTML
+                        const scripts = interactionDiv.getElementsByTagName('script');
+                        for (let script of scripts) {
+                            const newScript = document.createElement('script');
+                            newScript.type = script.type || 'text/javascript';
+                            if (script.src) {
+                                newScript.src = script.src;
+                                await new Promise((resolve, reject) => {
+                                    newScript.onload = resolve;
+                                    newScript.onerror = reject;
+                                    document.head.appendChild(newScript);
+                                });
+                            } else {
+                                newScript.textContent = script.textContent;
+                                document.head.appendChild(newScript);
+                            }
+                            script.remove(); // Remove the original script
+                        }
+                    } catch (error) {
+                        console.error('Error loading interaction:', error);
+                    }
+
+                    const dynamicVars = urlParameters.toString().split(/(&interaction=)[0-9]&+/g)[2];
+                    if (dynamicVars != null) {
+                        sessionStorage.setItem('settings', dynamicVars);
+                    } else {
+                        sessionStorage.setItem('settings', '');
+                    }
+                }
+                
+                // Update translations after all components are loaded
+                updateTranslations(localStorage.getItem('lang'));
+                console.log('All components loaded successfully!');
+            } catch (error) {
+                console.error('Error loading components:', error);
+            }
+        })();
+
+        function changeModule(module) {
+            var moduleSite = window.open('../modules/modules.html', '_self');
+            localStorage.setItem('currentModule', module);
+        }
+    </script>
+</head>
+
+<body style='background-color: #e9ecef;'>
+    <div id='top_header' class='top_header'>
+        <span class='pc home_language' id='header_pc'></span>
+        <h1 class='lang module_headline' key='moduleName'></h1>
+    </div>
+    <div class='main_body'>
+        <div class='navigation' id='unit_navigation' style='margin-bottom: 5px;'></div>
+        <div class='navigation' id='interaction_navigation' style='display: flex; justify-content: center; align-items: center; min-height: 40px; margin-top: 0;'></div>
+        <div id='interaction_html'></div>
+        <div id='share-component'></div>
+    </div>
+    <div style='background-color: #23396e; padding: 4%;'>
+        <br>
+    </div>
+</body>
+</html>

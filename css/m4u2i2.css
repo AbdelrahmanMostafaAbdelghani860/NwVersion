@@ -1,0 +1,287 @@
+:root {
+    --default-shape-color: #101010;
+    --default-secondary-color: #efefef;
+    --default-tertiary-color: #b3adad;
+    --default-bg-color: #bbbbbb;
+}
+
+html {
+    background-color: #23396e;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.main_body {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.top_header {
+    width: 100%;
+    background-color: #23396e;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    vertical-align: middle;
+}
+
+.home_language {
+    width: 2%;
+    min-width: 5px;
+}
+
+.module_headline {
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    word-wrap: break-word;
+}
+
+.navigation {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    
+}
+
+.interaction_headline {
+    text-align: center;
+    font-size: 18px;
+    color: #3B3B3B;
+    padding-top: 1%;
+}
+
+.interaction_table {
+    width: 100%;
+    line-height: 150%;
+}
+
+.interaction_description {
+    padding: 20px 60px 20px 60px;
+    border: 2px solid #3B3B3B;
+    border-radius: 25px;
+    background-color: #3B3B3B;
+    line-height: 1.3;
+    font-size: 18px;
+    color: white;
+    text-align: justify;
+}
+
+.interaction_spacer {
+    margin-top: 2%;
+}
+
+.interaction_parameter_area {
+    width: 17%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #3B3B3B;
+    color: white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.interaction_parameter_headline {
+    text-align: center;
+    font-size: 16px;
+}
+
+.interaction_canvas_area {
+    width: 71%;
+    background-color: #bbbbbb;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bbbbbb;
+}
+
+.interaction_canvas {
+    height: 100%;
+    width: 100%;
+    flex: auto;
+}
+
+.interaction_right_area {
+    width: 12%;
+    background-color:#3B3B3B;
+    color: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.buttoncontainer {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    position: relative; /* Allows absolute positioning of buttons */
+    margin-bottom: 10px; /* Space between button rows */
+}
+
+.buttoncontainer input {
+    position: absolute; /* Position the button in front of the text */
+    left: 0; /* Aligns button to the left */
+    z-index: 1; /* Ensures button is in front */
+}
+
+.buttoncontainer a {
+    margin-left: 40px; /* Space for the button */
+    z-index: 0; /* Text behind the button */
+}
+
+.lang[key='probNoise'],
+.lang[key='probNoiseVal'],
+.lang[key='probSignalNoise'],
+.lang[key='probSignalNoiseVal']{
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: block;
+}
+
+.outline {
+    border: 2px solid #ffffff; /* Black border */
+    margin: 5px 0; /* Space between the outlined boxes */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .radio {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .radio {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .radio:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .radio:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+  .checkmark-container {
+    display: block;
+    position: relative;
+    padding-left: 5px; /* Increased padding for better spacing */
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 16px; /* Set line height to match checkmark height */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkmark-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkmark */
+.checkmark {
+    position: absolute;
+    top: 2px; /* Adjust this value to align vertically */
+    left: 0;
+    height: 16px; /* Match the height of the checkmark */
+    width: 16px; /* Match the width of the checkmark */
+    background-color: #eee;
+    border-radius: 1px;
+}
+/* Create the indicator (the checkmark - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (checkmark) when checked */
+.checkmark-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (checkmark) */
+.checkmark:after {
+    left: 4px; /* Adjusted position for smaller size */
+    top: 2px; /* Adjusted position for smaller size */
+    width: 4px; /* Adjusted width for smaller size */
+    height: 8px; /* Adjusted height for smaller size */
+    border: solid black; /* Changed to black */
+    border-width: 0 2px 2px 0; /* Keep the same border width */
+    transform: rotate(45deg);
+}

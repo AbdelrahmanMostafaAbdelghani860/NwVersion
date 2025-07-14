@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <title class='lang' key='pageTitle'></title>
+        <link rel='stylesheet' href='../css/interaction.css'/>
+        <script src='../scripts/interactions/m4u2i5.js' defer></script>
+        <script type='text/javascript' src='../scripts/language_selection.js'></script>
+        <script type='text/javascript' src='../scripts/translations/interactions/dictionary_m4u2i5.js'></script>
+        <style>
+            .active-button {
+                background-color: blue !important;  /* Hintergrundfarbe */
+                color: white !important;  /* Textfarbe */
+                
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class='interaction_headline'>
+             <h2 class='lang' key='headline'></h2>
+        </div>
+        <table class='interaction_table'>
+            <tr>
+                <td class='interaction_description' colspan='3'>
+                    <a id='textfield' class='lang' key='instructions'></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+            <tr valign='top'>
+                <td class='interaction_parameter_area'>
+                    <h3><a class='lang' key='parameter'></a></h3>
+                    <div class='buttoncontainer' id='standardContainer'>
+                        <a class='lang' key='observerButton' font-size='10px'></a><br>
+                        <button><a class='lang'>1</a></button>
+                        <button><a class='lang'>2</a></button>
+                        <button><a class='lang'>3</a></button>
+                        <button><a class='lang'>4</a></button>
+                        <button><a class='lang'>5</a></button><br>
+                    </div>
+                    <div class='buttoncontainer' id='signalContainer1'>
+                        <a class='lang' key='signalButton' font-size='10px'></a><br>
+                        <button><a class='lang'>1</a></button>
+                        <button><a class='lang'>2</a></button>
+                        <button><a class='lang'>3</a></button>
+                        <button><a class='lang'>4</a></button>
+                        <button><a class='lang'>5</a></button><br>
+                    </div>
+                        <div class='buttoncontainer' id='continueContainer' style='display: inline;'>
+                            <button><a class='lang' key='continueButton'></a></button>
+                        </div>
+                        <div class='buttoncontainer' id='resetContainer1' style='display: inline;'>
+                            <button><a class='lang' key='resetButton1'></a></button>
+                        </div>
+                        <div class='buttoncontainer' id='resetContainer2' style='display: none;'>
+                            <button><a class='lang' key='resetButton2'></a></button>
+                        </div>
+                        <div class='buttoncontainer' id='resetContainer3' style='display: none;'>
+                            <button><a class='lang' key='resetButton3'></a></button>
+                        </div>
+                    <div class='buttoncontainer' id='signalContainer2'>
+                        <br><a class='lang' key='signalProbabilityButton' font-size='10px'></a><br>
+                        <button><a class='lang'>0.1</a></button>
+                        <button><a class='lang'>0.2</a></button>
+                        <button><a class='lang'>0.3</a></button>
+                        <button><a class='lang'>0.4</a></button>
+                        <button><a class='lang'>0.5</a></button>
+                        <button><a class='lang'>0.6</a></button>
+                        <button><a class='lang'>0.7</a></button>
+                        <button><a class='lang'>0.8</a></button>
+                        <button><a class='lang'>0.9</a></button>
+                    </div>
+                </td>
+                <td class='interaction_canvas_area'>
+                    <div class='container'>
+                        <canvas class='interaction_canvas' id='interaction'></canvas>
+                    </div>
+                </td>
+                <td class='interaction_right_area'>
+                    <h3></h3>
+                    <div class='navigation' id='interaction_navigation'></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

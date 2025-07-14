@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <title class='lang' key='pageTitle'></title>
+        <link rel='stylesheet' href='../css/interaction.css'/>
+        <script src='../scripts/interactions/m2u2i2.js' defer></script>
+        <script type='text/javascript' src='../scripts/language_selection.js'></script>
+        <script type='text/javascript' src='../scripts/translations/interactions/dictionary_m2u2i2.js'></script>
+
+        <style> /* the normal black text is hard to read */
+            .lang[key='DVal'],
+            .lang[key='SVal'],
+            .lang[key='AlphaVal'] {
+                color: white;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class='interaction_headline'>
+             <h2 class='lang' key='headline'></h2>
+        </div>
+        <table class='interaction_table'>
+            <tr>
+                <td class='interaction_description' colspan='3'>
+                    <a class='lang' key='instructions'></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+            <tr valign='top'>
+                <td class='interaction_parameter_area'>
+                    <h3><a class='lang' key='parameter'></a></h3>
+                    <br>
+                    <div class='slidecontainer'>
+                        <br><a class='lang' key='DSlider'></a><br>
+                        <input type='range' min='100' max='300' value='100' class='slider' id='DSlider'><br>
+                    </div>
+                    <div class='slidecontainer'>
+                        <br><a class='lang' key='SSlider'></a><br>
+                        <input type='range' min='30' max='130' value='30' class='slider' id='SSlider'><br>
+                    </div>
+                    <div class='navigation' id='interaction_navigation'></div>
+                        <a class = 'lang' key = 'DVal'  id= 'DVal'></a>
+                        <a class = 'lang' key = 'SVal' id = 'SVal'></a>
+                        <a class = 'lang' key = 'AlphaVal' id = 'AlphaVal'></a>
+                </td>
+                <td class='interaction_canvas_area'>
+                    <div class='container'>
+                        <canvas class='interaction_canvas' id='interaction'></canvas>
+                    </div>
+                </td>
+                <td class='interaction_right_area'>
+                    <h3></h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

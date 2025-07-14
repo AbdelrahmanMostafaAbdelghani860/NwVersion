@@ -1,0 +1,28 @@
+<script src='/InteractionsDone-main%20(1)/InteractionsDone-main/scripts/URLParameter.js'></script>
+<script>
+    nameOfModules = {
+        'de' : {
+            'm1' : 'Objekt- und Formwahrnehmung',
+            'm2' : 'Tiefen- und Größenwahrnehmung',
+            'm3' : 'Bewegungswahrnehmung',
+            'm4' : 'Psychophysik'
+        },
+        'en' : {
+            'm1' : 'Object and form perception',
+            'm2' : 'Depth and size perception',
+            'm3' : 'Perception of movement',
+            'm4' : 'Psychophysics'
+        }
+    };
+
+    console.log(nameOfModules);
+
+    if (urlParameters.has('module')) {
+        moduleName = nameOfModules['de']['m' + urlParameters.get('module')];
+        console.log('Module name: ' + moduleName);
+
+        var module_headline = document.getElementById('module_headline');
+        module_headline.innerHTML = moduleName;
+    }
+
+</script>

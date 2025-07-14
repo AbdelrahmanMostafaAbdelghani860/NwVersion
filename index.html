@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title class="lang" key="pageTitle">Startseite</title>
+
+    <link rel="icon" href="favicon.ico?v=1" />
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/components.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script
+      type="text/javascript"
+      src="scripts/translations/dictionary_index.js"></script>
+    <script type="text/javascript" src="scripts/language_selection.js"></script>
+    <script
+      type="text/javascript"
+      src="scripts/manageNavigationTree.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        updateTranslations(localStorage.getItem("lang"));
+
+        const urlParameters = new URLSearchParams(
+          window.location.search.replace(/&amp;/g, "&")
+        );
+        function loadTree() {
+          if (urlParameters.has("module") && urlParameters.has("unit")) {
+            var subtree =
+              "module" +
+              urlParameters.get("module") +
+              "_unit_subtree" +
+              urlParameters.get("unit");
+            unfoldNavigationTree(subtree);
+          }
+        }
+        setTimeout(function () {
+          loadTree();
+        }, 100);
+        setTimeout(function () {
+          loadTree();
+        }, 300);
+        setTimeout(function () {
+          loadTree();
+        }, 500);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="pc">
+      <table>
+        <tr>
+          <div style="text-align: left; margin-bottom: -2%">
+            <div>
+              <select class="translate">
+                <option value="de">DE</option>
+                <option value="en">EN</option>
+              </select>
+            </div>
+            <div>
+              <div style="text-align: left; margin-top: -2%">
+                <h1 class="lang headline" key="headline"></h1>
+                <h5
+                  class="lang credits"
+                  key="credits"
+                  style="
+                    font-size: 22px;
+                    font-weight: 190;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    text-align: center;
+                  "></h5>
+                <br />
+                <hr />
+                <br />
+                <br />
+                <div class="module-container">
+                  <div class="module-box" id="pc_module1"></div>
+                  <div class="module-box" id="pc_module2"></div>
+                  <div class="module-box" id="pc_module3"></div>
+                  <div class="module-box" id="pc_module4"></div>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+            </div>
+          </div>
+        </tr>
+        <tr></tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".module-box").forEach(function (box) {
+          box.addEventListener("click", function () {
+            this.classList.toggle("open");
+          });
+        });
+        initSubtrees();
+
+        const loadTranslations = () =>
+          updateTranslations(localStorage.getItem("lang"));
+        loadTranslations();
+        setTimeout(loadTranslations, 100);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <title class='lang' key='pageTitle'></title>
+        <link rel='stylesheet' href='../css/interaction.css'/>
+        <script src='../scripts/interactions/m4u3i2.js' defer></script>
+        <script type='text/javascript' src='../scripts/language_selection.js'></script>
+        <script type='text/javascript' src='../scripts/translations/interactions/dictionary_m4u3i2.js'></script>
+        <style>
+            .active-button {
+                background-color: blue !important; /* Markiert den aktiven Button */
+                color: white !important; /* Weißer Text */
+                border: 2px solid darkblue !important; /* Rahmen für bessere Sichtbarkeit */
+                border-radius: 5px !important; 
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class='interaction_headline'>
+             <h2 class='lang' key='headline'></h2>
+        </div>
+        <table class='interaction_table'>
+            <tr>
+                <td class='interaction_description' colspan='3'>
+                    <a class='lang' key='instructions'></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+            <tr valign='top'>
+                <td class='interaction_parameter_area'>
+                    <h3><a class='lang' key='parameter'></a></h3>
+                    <div class='buttoncontainer' id='standardContainer'>
+                        <br>
+                        <h4><a class='lang' key='standardButton'></a></h4><br>
+                        <button><a class='lang' key='button1'></a></button><br>
+                        <button><a class='lang' key='button2'></a></button><br>
+                        <button><a class='lang' key='button3'></a></button><br>
+                        <button><a class='lang' key='button4'></a></button><br>
+                        <button><a class='lang' key='button5'></a></button><br>
+                        <button><a class='lang' key='button6'></a></button>
+                    </div>
+                </td>
+                <td class='interaction_canvas_area'>
+                    <div class='container'>
+                        <canvas class='interaction_canvas' id='interaction'></canvas>
+                    </div>
+                </td>
+                <td class='interaction_right_area'>
+                    <h3></h3>
+                    <div class='navigation' id='interaction_navigation'></div>
+                    <table style="width:100%">
+                        <tr>
+                          <th><a class='lang' key='comparisonButton' style='color: white;'></a></th>
+                          <th><a class='lang' key='JNDButton' style='color: white;'></a></th>
+                        </tr>
+                        <tr>
+                            <td><a class='lang' key='button1.1' style='display: none;'></a></td>
+                            <td><a class='lang' key='button2.1' style='display: none;'></a></td>
+                        </tr>
+                        <tr>
+                            <td><a class='lang' key='button1.2' style='display: none;'></a></td>
+                            <td><a class='lang' key='button2.2' style='display: none;'></a></td>
+                        </tr>
+                        <tr>
+                            <td><a class='lang' key='button1.3' style='display: none;'></a></td>
+                            <td><a class='lang' key='button2.3' style='display: none;'></a></td>
+                        </tr>
+                        <tr>
+                            <td><a class='lang' key='button1.4' style='display: none;'></a></td>
+                            <td><a class='lang' key='button2.4' style='display: none;'></a></td>
+                        </tr>
+                        <tr>
+                            <td><a class='lang' key='button1.5' style='display: none;'></a></td>
+                            <td><a class='lang' key='button2.5' style='display: none;'></a></td>
+                        </tr>
+                        <tr>
+                            <td><a class='lang' key='button1.6' style='display: none;'></a></td>
+                            <td><a class='lang' key='button2.6' style='display: none;'></a></td>
+                        </tr>
+                      </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<div
+  class="share-button-container"
+  style="position: fixed; bottom: 20px; right: 20px; z-index: 1000">
+  <input
+    type="button"
+    value="⇱"
+    class="share-button"
+    title="Share this page "
+    style="
+      height: 40px;
+      width: 40px;
+      min-width: 40px;
+      font-size: 16px;
+      color: white;
+      background: #23396e;
+      border-radius: 50%;
+      padding: 0;
+      margin: 2px;
+      border: 2px solid #23396e;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    "
+    onclick="window.location.href = 'share.html'" />
+</div>
+<script>
+  (function () {
+    const shareButton = document.querySelector(".share-button");
+    if (shareButton) {
+      shareButton.onmouseover = function () {
+        this.style.background = "#2f4b92";
+        this.style.transform = "translateY(-2px)";
+        this.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+        this.style.borderColor = "#2f4b92";
+      };
+
+      shareButton.onmouseout = function () {
+        this.style.background = "#23396e";
+        this.style.transform = "none";
+        this.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
+        this.style.borderColor = "#23396e";
+      };
+
+      shareButton.onclick = function () {
+        const currentUrl = window.location.href;
+        navigator.clipboard
+          .writeText(currentUrl)
+          .then(function () {
+            alert(
+              "A direct link to open this interaction was copied to the clipboard ! "
+            );
+          })
+          .catch(function (err) {
+            console.error("Could not copy text: ", err);
+          });
+      };
+    }
+  })();
+</script>

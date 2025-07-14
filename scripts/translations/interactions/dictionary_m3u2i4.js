@@ -1,0 +1,47 @@
+var languages = {
+    'de' : {
+		'moduleName' : '3. Bewegungswahrnehmung',
+		'unitButton1' : 'Einheit 1',
+		'unitButton2' : 'Einheit 2',
+		'unitButton3' : 'Einheit 3',
+		'unitButton4' : 'Einheit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'pageTitle' : 'Bewegung und eingeführte Okklusion',
+		'headline' : '3.2.4 Bewegung und eingeführte Okklusion',
+        'instructions' : 'Bewegen Sie zunächst den Cursor, bis eine zufriedenstellende scheinbare Bewegung erreicht ist, und platzieren Sie dann Ihren Zeigefinger wie angegeben. Verändert die Anwesenheit Ihres Zeigefingers Ihre Wahrnehmung?',
+		'shareButton' : 'Teilen',
+		'shareHeadline' : 'Teile den aktuellen Zustand',
+		'shareCopyToClipboard' : 'Kopieren',
+		'shareConfirmation' : 'Kopieren des Links vom aktuellen Zustand war erfolgreich ✓',
+		'flashinglights' : 'ACHTUNG: SCHNELL WECHSELNDE LICHTER',
+		'interframeIntervalSlider' : 'Intervall zwischen den Bildern [S - W]',
+		'startButton' : 'Starten/Pausieren [E]',
+		'parameter' : 'Parameter'
+		
+	},
+    'en' : {
+		'moduleName' : '3. Perception of movement',
+		'unitButton1' : 'Unit 1',
+		'unitButton2' : 'Unit 2',
+		'unitButton3' : 'Unit 3',
+		'unitButton4' : 'Unit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'pageTitle' : 'Motion and Introduced Occlusion',
+		'headline' : '3.2.4 Motion and Introduced Occlusion',
+        'instructions' : 'First, slide the cursor until satisfying apparent motion is achieved, and then place your forefinger as indicated. Does the presence of your forefinger alter your perception?',
+		'shareButton' : 'Share',
+		'shareHeadline' : 'Share the current state',
+		'shareCopyToClipboard' : 'Copy',
+		'shareConfirmation' : 'Copying the link from the current state was successful ✓',
+		'flashinglights' : 'WARNING: FLASHING LIGHTS',
+		'interframeIntervalSlider' : 'Interframe Interval [S - W]:',
+		'startButton' : 'Start/Pause [E]:',
+		'parameter' : 'Parameter'
+	}
+};

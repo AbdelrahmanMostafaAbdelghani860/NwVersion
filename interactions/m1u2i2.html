@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <title class='lang' key='pageTitle'></title>
+        <link rel='stylesheet' href='/InteractionsDone-main%20(1)/InteractionsDone-main/css/interaction.css'/>
+        <script src='/InteractionsDone-main%20(1)/InteractionsDone-main/scripts/interactions/m1u2i2.js' defer></script>
+        <script type='text/javascript' src='/InteractionsDone-main%20(1)/InteractionsDone-main/scripts/language_selection.js'></script>
+        <script type='text/javascript' src='/InteractionsDone-main%20(1)/InteractionsDone-main/scripts/translations/interactions/dictionary_m1u2i2.js'></script>
+        <style>
+            .container {
+                position: relative;
+                width: 500px;
+                height: 500px;
+                margin: 0 auto;
+                border: 1px solid black;
+            }
+    
+            #slider {
+                margin-top: 10px;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class='interaction_headline'>
+             <h2 class='lang' key='headline'></h2>
+        </div>
+        <table class='interaction_table'>
+            <tr>
+                <td class='interaction_description' colspan='3'>
+                    <a class='lang' key='instructions'></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+            <tr valign='top'>
+                <td class='interaction_parameter_area'>
+                    <h3><a class='lang' key='parameter'></a></h3>
+                    <input type="range" id="slider" min="0" max="1" step="0.01" value="1">
+                    <br>
+                </td>
+                <td class='interaction_canvas_area'>
+                    <div class='container'>
+                        <canvas class='interaction_canvas' id='interaction'></canvas>
+                    </div>
+                </td>
+                <td class='interaction_right_area'>
+                    <h3></h3>
+                    <div class='navigation' id='interaction_navigation'>
+                        <script src='/InteractionsDone-main%20(1)/InteractionsDone-main/scripts/URLParameter.js'></script>
+                        <script src='/InteractionsDone-main%20(1)/InteractionsDone-main/components/interaction_navigation.html'></script>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+        </table>
+        <script>
+            const canvas = document.getElementById('interaction');
+            const ctx = canvas.getContext('2d');
+            const slider = document.getElementById('slider');
+            const img1 = new Image();
+            const img2 = new Image();
+
+            // Set the image sources (use forward slashes)
+            img1.src = '/InteractionsDone-main%20(1)/InteractionsDone-main/resources/icon/img1.png';
+            img2.src = '/InteractionsDone-main%20(1)/InteractionsDone-main/resources/icon/img2.png';
+
+            canvas.width = 500; // Set the width of the canvas
+            canvas.height = 500; // Set the height of the canvas
+
+            // Function to draw blended images
+            function drawImages(opacity) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw first image with varying opacity
+                ctx.globalAlpha = 1 - opacity; // Fade out img1
+                ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
+                
+                // Draw second image with varying opacity
+                ctx.globalAlpha = opacity; // Fade in img2
+                ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
+                
+                // Reset global alpha to default
+                ctx.globalAlpha = 1;
+            }
+
+            // Draw images after both are loaded
+            let imagesLoaded = 0;
+            function checkImagesLoaded() {
+                imagesLoaded++;
+                console.log(`Image loaded: ${this.src}`);
+                if (imagesLoaded === 2) {
+                    // Both images are loaded, initial draw
+                    drawImages(1);
+                }
+            }
+
+            img1.onload = checkImagesLoaded;
+            img2.onload = checkImagesLoaded;
+
+            // Error handling for image loading
+            img1.onerror = function() {
+                console.error("Failed to load img1:", img1.src);
+            };
+            img2.onerror = function() {
+                console.error("Failed to load img2:", img2.src);
+            };
+
+            // Update drawing when slider changes
+            slider.addEventListener('input', function() {
+                drawImages(slider.value);
+            });
+        </script>
+    </body>
+</html>

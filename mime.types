@@ -1,0 +1,6 @@
+types {
+    text/css                              css;
+    application/javascript                js;
+    application/x-javascript              js;
+    text/javascript                       js;
+}

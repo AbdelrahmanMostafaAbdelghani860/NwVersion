@@ -1,0 +1,40 @@
+var languages = {
+    'de' : {
+        'pageTitle' : 'Psychophysik',
+        'langSelection' : 'Sprache:',
+        'modules' : 'Module:',
+        'button1' : 'Objekt- und Formwahrnehmung',
+        'button2' : 'Tiefen- und Größenwahrnehmung',
+        'button3' : 'Bewegungswahrnehmung',
+        'button4' : 'Psychophysik',
+        'headline' : 'Psychophysik',
+        'unit1' : 'Klassische psychophysikalische Methoden',
+        'unit2' : 'Theorie der Signalerfassung',
+        'unit3' : 'Psychophysikalische Skalierung',
+        'interaction1' : 'Wahrscheinlichkeitsverteilung',
+        'interaction2' : 'Bewertung der sensorischen Wirkungen',
+        'interaction3' : 'Kriterium und Arten von Fehlern',
+        'interaction4' : "Variieren von d' mit konstantem Kriterium",
+        'interaction5' : 'Variablen, die die ROC-Kurven beeinflussen',
+        'interaction6' : "ROC-Kurven, Kriterium und d'"
+    },
+    'en' : {
+        'pageTitle' : 'Psychophysics',
+        'langSelection' : 'language:',
+        'modules' : 'modules:',
+        'button1' : 'Object and form perception',
+        'button2' : 'Depth and size perception',
+        'button3' : 'Perception of movement',
+        'button4' : 'Psychophysics',
+        'headline' : 'Psychophysics',
+        'unit1' : 'Classical Psychophysical Methods',
+        'unit2' : 'Signal Detection Theory',
+        'unit3' : 'Psychophysical Scaling',
+        'interaction1' : 'Probability Distribution',
+        'interaction2' : 'Evaluating Sensory Effects',
+        'interaction3' : 'Criterion and Kinds of Errors',
+        'interaction4' : "Varying d' with Criterion Constant",
+        'interaction5' : 'Variables Affecting ROC Curves',
+        'interaction6' : "ROC Curves, Criterion and d'"
+    }
+};

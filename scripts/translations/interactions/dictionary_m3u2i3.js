@@ -1,0 +1,47 @@
+var languages = {
+    'de' : {
+		'moduleName' : '3. Bewegungswahrnehmung',
+		'unitButton1' : 'Einheit 1',
+		'unitButton2' : 'Einheit 2',
+		'unitButton3' : 'Einheit 3',
+		'unitButton4' : 'Einheit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'pageTitle' : 'Scheinbare Bewegung und Okklusion',
+		'headline' : '3.2.3 Scheinbare Bewegung und Okklusion',
+        'instructions' : 'In dieser Interaktion erzeugen wir wieder eine scheinbare Bewegung, indem wir zwei Bilder schnell abwechseln. Mit den Schaltflächen am rechten Bildschirmrand können Sie den Inhalt der einzelnen Bilder überprüfen. Wenn Sie fertig sind, klicken Sie auf Start und bewegen Sie den Cursor, bis eine zufriedenstellende scheinbare Bewegung erreicht ist. Wird sich das Rechteck aus Bild 1 auf das Rechteck aus Bild 2 zubewegen und mit ihr verschmelzen, während der Kreis unbeweglich bleibt und immer wieder aufblinkt? Wahrscheinlich nicht. Die meisten sehen, wie sich der Kreis hinter das Rechteck bewegt, wenn das Intervall zwischen den Bildern optimal ist.',
+		'shareButton' : 'Teilen',
+		'shareHeadline' : 'Teile den aktuellen Zustand',
+		'shareCopyToClipboard' : 'Kopieren',
+		'shareConfirmation' : 'Kopieren des Links vom aktuellen Zustand war erfolgreich ✓',
+		'flashinglights' : 'ACHTUNG: SCHNELL WECHSELNDE LICHTER',
+		'interframeIntervalSlider' : 'Intervall zwischen den Bildern [S - W]',
+		'startButton' : 'Starten/Pausieren [E]',
+		'parameter' : 'Parameter'
+		
+	},
+    'en' : {
+		'moduleName' : '3. Perception of movement',
+		'unitButton1' : 'Unit 1',
+		'unitButton2' : 'Unit 2',
+		'unitButton3' : 'Unit 3',
+		'unitButton4' : 'Unit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'pageTitle' : 'Apparent Motion and Occlusion',
+		'headline' : '3.2.3 Apparent Motion and Occlusion',
+        'instructions' : 'In this interaction, we again induce apparent motion by rapidly alternating two frames. You can check the contents of each frame, using the buttons to the right of the screen. When you have finished, click Start and slide the cursor until satisfying apparent movement is achieved. Will the frame 1 rectangle move toward the frame 2 rectangle and fuse with it, while the circle remains stationary blinking on and off? Probably not. Most see the circle move behind the the rectangle when the interframe interval is optimal.',
+		'shareButton' : 'Share',
+		'shareHeadline' : 'Share the current state',
+		'shareCopyToClipboard' : 'Copy',
+		'shareConfirmation' : 'Copying the link from the current state was successful ✓',
+		'flashinglights' : 'WARNING: FLASHING LIGHTS',
+		'interframeIntervalSlider' : 'Interframe Interval [S - W]:',
+		'startButton' : 'Start/Pause [E]:',
+		'parameter' : 'Parameter'
+	}
+};

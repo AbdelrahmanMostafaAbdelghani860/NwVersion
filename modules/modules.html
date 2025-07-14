@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <link rel='icon' type='image/x-icon' href='../favicon.ico'>
+        <link rel='stylesheet' type='text/css' href='../css/modules.css'>
+        <link rel='stylesheet' type='text/css' href='../css/theme.css'>
+        <link rel='stylesheet' type='text/css' href='../css/components.css'>
+        <script src='../scripts/URLParameter.js'></script>
+        <script src='../scripts/language_selection.js'></script>
+        <script src='../scripts/translations/dictionary_index.js'></script>
+        <script>
+        async function loadComponent(elementId, path) {
+            try {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading component:', error);
+                document.getElementById(elementId).innerHTML = '<p>Error loading content</p>';
+            }
+        }
+
+        async function changeModule(module) {
+            localStorage.setItem('currentModule', module);
+            const moduleNumber = module.split('_')[1];
+            await loadComponent('body', 'module' + moduleNumber + '.html');
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadComponent('pc_header', '../components/header_bar.html');
+            if ('currentModule' in localStorage) {
+                const currentModule = localStorage.getItem('currentModule');
+                const moduleNumber = currentModule.split('_')[1];
+                await loadComponent('body', 'module' + moduleNumber + '.html');
+            }
+        });
+    </script>
+
+        <title class='lang' key='pageTitle'>
+        </title>
+    </head>
+
+    <body>
+        <div id='pc_header'></div>
+        <div id='body'></div>
+        <div id='share_button'></div>
+        <script>
+            loadComponent('share_button', '../components/share_button.html');
+        </script>
+    </body>
+</html>

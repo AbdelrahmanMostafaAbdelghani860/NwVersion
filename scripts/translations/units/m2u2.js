@@ -1,0 +1,42 @@
+var languages = {
+    'de' : {
+        'pageTitle' : 'Tiefen- und Größenwahrnehmung',
+        'langSelection' : 'Sprache:',
+        'modules' : 'Module:',
+        'button1' : 'Objekt- und Formwahrnehmung',
+        'button2' : 'Tiefen- und Größenwahrnehmung',
+        'button3' : 'Bewegungswahrnehmung',
+        'button4' : 'Psychophysik',
+        'headline' : 'Tiefen- und Größenwahrnehmung',
+        'unit1' : 'Anhaltspunkte für Tiefe',
+        'unit2' : 'Sehwinkel, Netzhautgröße und Entfernung',
+        'unit3' : 'Größe, Entfernung und andere Illusionen',
+        'unit4' : 'Stereoskopische Tiefenwahrnehmung',
+        'interaction1' : 'Betrachtungsabstand und Betrachtungswinkel',
+        'interaction2' : 'Berechnung des Betrachtungswinkels',
+        'interaction3' : 'Größe und Betrachtungswinkel',
+        'interaction4' : 'Größenunterschiede und Betrachtungswinkel',
+        'interaction5' : 'Größen-Abstands-Skalierung',
+        'interaction6' : "Nachbilder und das Emmert'sche Gesetz"
+    },
+    'en' : {
+        'pageTitle' : 'Depth and size perception',
+        'langSelection' : 'language:',
+        'modules' : 'modules:',
+        'button1' : 'Object and form perception',
+        'button2' : 'Depth and size perception',
+        'button3' : 'Perception of movement',
+        'button4' : 'Psychophysics',
+        'headline' : 'Depth and size perception',
+        'unit1' : 'Cues to Depth',
+        'unit2' : 'Visual Angle, Retinal Size and Distance',
+        'unit3' : 'Size, Distance and other Illusions',
+        'unit4' : 'Stereoscopic Depth Perception',
+        'interaction1' : 'Viewing Distance and Visual Angle',
+        'interaction2' : 'Calculating Visual Angle',
+        'interaction3' : 'Size and Visual Angle',
+        'interaction4' : 'Size Differences and Visual Angle',
+        'interaction5' : 'Size-Distance Scaling',
+        'interaction6' : "Afterimages and Emmert's Law"
+    }
+};

@@ -1,0 +1,62 @@
+<script src='../scripts/URLParameter.js'></script>
+<script>
+        numberOfUnitsPerModule = {
+            'm1': 3,
+            'm2': 4,
+            'm3': 4,
+            'm4': 3,
+        };
+
+        console.log(numberOfUnitsPerModule);
+
+        if (urlParameters.has('module')) {
+            function openUnit(unit) {
+                var landingPage = window.open('../index.html?module=' + urlParameters.get('module') + '&unit=' + unit, '_self');
+            }
+
+            numberOfButtons = numberOfUnitsPerModule['m' + urlParameters.get('module')];
+            console.log('Number of buttons: ' + numberOfButtons);
+
+            var unit_navigation_bar = document.getElementById('unit_navigation');
+
+            for (var i = 0; i < numberOfButtons; i++) {
+                var input = document.createElement('input');
+                input.setAttribute('class', 'lang');
+                input.setAttribute('key', 'unitButton' + (i + 1));
+                const baseStyle = 'height:6%; width:' + (50 / (numberOfButtons)) + '%; min-width: 130px; font-size:153%; color:white; background:#23396e; border-radius: 90px; padding:10px; margin: 0.5%; transition: all 0.3s ease; cursor: pointer; border: 2px solid #23396e;';
+                input.setAttribute('style', baseStyle);
+                input.setAttribute('type', 'button');
+
+                const unitUrl = '../interactions/interaction.html?module=' + urlParameters.get('module') + '&unit=' + (i + 1) + '&interaction=1';
+                input.setAttribute('onClick', 'console.log("Navigating to:", "' + unitUrl + '"); window.location.href="' + unitUrl + '";');
+                
+                input.onmouseover = function() {
+                    this.style.background = '#2f4b92';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                    this.style.borderColor = '#2f4b92';
+                };
+                
+                input.onmouseout = function() {
+                    this.style.background = '#23396e';
+                    this.style.transform = 'none';
+                    this.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                    this.style.borderColor = '#23396e';
+                };
+
+                if (urlParameters.get('unit') === (i + 1).toString()) {
+                    input.disabled = true;
+                    input.style.background = '#3b3b3b';
+                    input.style.cursor = 'default';
+                    input.style.boxShadow = 'none';
+                    input.style.transform = 'none';
+                    input.style.borderColor = '#3b3b3b';
+                    input.style.opacity = '0.8';
+                }
+                console.log('Unit: ' + i);
+                console.log(input);
+                unit_navigation_bar.appendChild(input);
+            }
+        }
+
+    </script>

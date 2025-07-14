@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <link rel='stylesheet' type='text/css' href='../css/sidetogglebar.css'>
+
+    </head>
+
+    <body>
+        <div class='page-wrap'>
+            <div class='toggle'>&#9776;</div>
+            <!-- Using Unicode for hamburger icon -->
+            <div class='page-content' id='module-content'></div>
+        </div>
+
+        <!-- Sidebar HTML -->
+        <div class='sidebar' id='mySidenav'>
+            <ul>
+                <li><a target='_parent' href='../index.html'>🏡</a></li>
+                <li>
+                    <label class='lang' key='langSelection'></label>
+                    <select class='translate' id='selectLanguage'>
+                        <option value='de'>DE</option>
+                        <option value='en'>EN</option>
+                    </select>
+                </li>
+                <li>
+                    <label class='lang' key='modules'>
+                    </label>
+                </li>
+                <input class='lang' key='button1' type='button'
+                    value='Objekt- und Formwahrnehmung'
+                    onclick="window.parent.location.href='javascript:changeModule(\'module1\')'" />
+                <input class='lang' key='button2' type='button'
+                    value='Tiefen- und Größenwahrnehmung'
+                    onclick="window.parent.location.href='javascript:changeModule(\'module2\')'" />
+                <input class='lang' key='button3' type='button'
+                    value='Bewegungswahrnehmung'
+                    onclick="window.parent.location.href='javascript:changeModule(\'module3\')'" />
+                <input class='lang' key='button4' type='button'
+                    value='Psychophysik'
+                    onclick="window.parent.location.href='javascript:changeModule(\'module4\')'" />
+            </ul>
+        </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const toggleButton = document.querySelector('.toggle');
+            const sidebar = document.getElementById('mySidenav');
+            const moduleContent = document.getElementById('module-content');
+
+            if (toggleButton && sidebar) {
+                toggleButton.addEventListener('click', () => {
+                    sidebar.classList.toggle('open');
+                });
+
+                // Close the sidebar when clicking outside of it
+                document.addEventListener('click', (event) => {
+                    if (!sidebar.contains(event.target) && event.target !== toggleButton) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            } else {
+                console.error('Toggle button or sidebar not found!');
+            }
+
+            // Load module content if available
+            if (moduleContent && 'currentModule' in localStorage) {
+                try {
+                    const response = await fetch('../modules/' + localStorage.getItem('currentModule') + '.html');
+                    const html = await response.text();
+                    moduleContent.innerHTML = html;
+                } catch (error) {
+                    console.error('Error loading module content:', error);
+                }
+            }
+        });
+    </script>
+    </body>
+
+</html>

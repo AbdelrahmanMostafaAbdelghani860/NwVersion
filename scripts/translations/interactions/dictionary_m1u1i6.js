@@ -1,0 +1,42 @@
+var languages = {
+    'de' : {
+		'moduleName' : '1. Objekt- und Formwahrnehmung',
+		'unitButton1' : 'Einheit 1',
+		'unitButton2' : 'Einheit 2',
+		'unitButton3' : 'Einheit 3',
+		'unitButton4' : 'Einheit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'interactionButton5' : '5',
+		'interactionButton6' : '6',
+		'pageTitle' : 'Das Gesetz der Geschlossenheit',
+		'headline' : '1.1.6 Das Gesetz der Geschlossenheit',
+        'instructions' : 'Selbst wenn Abbildungen unvollständig sind, besteht die Tendenz, die Lücken zu füllen und eine vollständige dosierte Abbildung zu sehen. Klicken Sie auf die unten stehenden Abbildungen, um Teile der Konturen zu löschen. Ihr Gesamteindruck wird wahrscheinlich derselbe bleiben.',
+		'shareButton' : 'Teilen',
+		'shareHeadline' : 'Teile den aktuellen Zustand',
+		'shareCopyToClipboard' : 'Kopieren',
+		'shareConfirmation' : 'Kopieren des Links vom aktuellen Zustand war erfolgreich ✓'
+	},
+    'en' : {
+		'moduleName' : '1. Object and form perception',
+		'unitButton1' : 'Unit 1',
+		'unitButton2' : 'Unit 2',
+		'unitButton3' : 'Unit 3',
+		'unitButton4' : 'Unit 4',
+		'interactionButton1' : '1',
+		'interactionButton2' : '2',
+		'interactionButton3' : '3',
+		'interactionButton4' : '4',
+		'interactionButton5' : '5',
+		'interactionButton6' : '6',
+		'pageTitle' : 'The Law of Closure',
+		'headline' : '1.1.6 The Law of Closure',
+        'instructions' : 'Even when figures are incomplete, there is a tendency to fill the gaps and see a complete dosed figure. Click on the figures below to delete segments of their contours. Your overall percept will probably remain much the same.',
+        'shareButton' : 'Share',
+		'shareHeadline' : 'Share the current state',
+		'shareCopyToClipboard' : 'Copy',
+		'shareConfirmation' : 'Copying the link from the current state was successful ✓'
+    }
+};

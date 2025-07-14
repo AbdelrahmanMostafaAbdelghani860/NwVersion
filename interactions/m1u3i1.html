@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+
+  <head>
+    <title class="lang" key="pageTitle"></title>
+    <link rel="stylesheet" href="../css/interaction.css" />
+    <script src="../scripts/interactions/m1u3i1.js" defer></script>
+    <script
+      type="text/javascript"
+      src="../scripts/language_selection.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../scripts/translations/interactions/dictionary_m1u3i1.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="interaction_headline">
+      <h2 class="lang" key="headline"></h2>
+    </div>
+    <table class="interaction_table">
+      <tr>
+        <td class="interaction_description" colspan="3">
+          <span id="feedbackMessage" class="lang" key="instructions"></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="interaction_parameter_area">
+          <h3><a class="lang" key="parameter"></a></h3>
+          <br />
+          <div class="buttoncontainer">
+            <br /><a class="lang" key="TLButton"></a><br />
+            <input type="radio" name="a" value="  " id="TLButton" />
+          </div>
+          <div class="buttoncontainer">
+            <br /><a class="lang" key="RotationButton"></a><br />
+            <input type="radio" name="b" value=" " id="RotationButton" />
+          </div>
+          <div class="buttoncontainer">
+            <br /><a class="lang" key="ResetButton"></a><br />
+            <input type="button" value="  " id="ResetButton" />
+          </div>
+        </td>
+        <td class="interaction_canvas_area">
+          <div class="container">
+            <canvas class="interaction_canvas" id="interaction"></canvas>
+          </div>
+        </td>
+        <td class="interaction_right_area">
+          <h3></h3>
+          <div class="navigation" id="interaction_navigation"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+    </table>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (
+          sessionStorage.getItem("settings") !== null &&
+          sessionStorage.getItem("settings") !== ""
+        ) {
+          loadSettings();
+        } else {
+          resetSettings(); // Assuming resetSettings also calls init() or drawing functions
+        }
+        // Ensure init() or your drawing logic is called after settings are handled
+        // If resetSettings() calls init(), you might not need the separate init() call here.
+        // If neither loadSettings nor resetSettings guarantee init() is called,
+        // you should call it after the if/else block:
+        // init();
+      });
+
+      init();
+    </script>
+  </body>
+</html>

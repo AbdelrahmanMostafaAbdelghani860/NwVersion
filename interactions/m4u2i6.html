@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <title class='lang' key='pageTitle'></title>
+        <link rel='stylesheet' href='../css/interaction.css'/>
+        <script src='../scripts/interactions/m4u2i6.js' defer></script>
+        <script type='text/javascript' src='../scripts/language_selection.js'></script>
+        <script type='text/javascript' src='../scripts/translations/interactions/dictionary_m4u2i6.js'></script>
+        <style>
+            .active-button {
+                background-color: blue !important;  
+                color: white !important;  
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class='interaction_headline'>
+             <h2 class='lang' key='headline'></h2>
+        </div>
+        <table class='interaction_table'>
+            <tr>
+                <td class='interaction_description' colspan='3'>
+                    <a id='textfield' class='lang' key='instructions'></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+            <tr valign='top'>
+                <td class='interaction_parameter_area'>
+                    <h3><a class='lang' key='parameter'></a></h3>
+                    <div class='buttoncontainer' id='abcContainer1' style='display: inline;'>
+                        <button><a class='lang'>A</a></button>
+                        <button><a class='lang'>B</a></button>
+                        <button><a class='lang'>C</a></button>
+                        <button><a class='lang'>D</a></button>
+                        <button><a class='lang'>E</a></button>
+                        <button><a class='lang'>F</a></button>
+                    </div>
+                    <div class='buttoncontainer' id='abcContainer2' style='display: none;'>
+                        <button><a class='lang'>A</a></button>
+                        <button><a class='lang'>B</a></button>
+                        <button><a class='lang'>C</a></button>
+                        <button><a class='lang'>D</a></button>
+                        <button><a class='lang'>E</a></button>
+                        <button><a class='lang'>F</a></button>
+                    </div>
+                    <div class='buttoncontainer' id='resetButtonContainer'>
+                        <br><button><a class='lang' key='resetButton'></a></button>
+                    </div>
+                    <div class='buttoncontainer' id='nextButtonContainer'>
+                        <button><a class='lang' key='nextButton'></a></button>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer1.1' style='display: inline;'>
+                        <br><a class='lang' key='criterionButton1.1'></a>
+                        <br><a class='lang' key='sensitivityButton1.1'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer1.2' style='display: none;'>
+                        <br><a class='lang' key='criterionButton1.2'></a>
+                        <br><a class='lang' key='sensitivityButton1.2'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer1.3' style='display: none;'>
+                        <br><a class='lang' key='criterionButton1.3'></a>
+                        <br><a class='lang' key='sensitivityButton1.3'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer1.4' style='display: none;'>
+                        <br><a class='lang' key='criterionButton1.4'></a>
+                        <br><a class='lang' key='sensitivityButton1.4'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer1.5' style='display: none;'>
+                        <br><a class='lang' key='criterionButton1.5'></a>
+                        <br><a class='lang' key='sensitivityButton1.5'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer1.6' style='display: none;'>
+                        <br><a class='lang' key='criterionButton1.6'></a>
+                        <br><a class='lang' key='sensitivityButton1.6'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer2.1' style='display: none;'>
+                        <br><a class='lang' key='criterionButton2.1'></a>
+                        <br><a class='lang' key='sensitivityButton2.1'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer2.2' style='display: none;'>
+                        <br><a class='lang' key='criterionButton2.2'></a>
+                        <br><a class='lang' key='sensitivityButton2.2'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer2.3' style='display: none;'>
+                        <br><a class='lang' key='criterionButton2.3'></a>
+                        <br><a class='lang' key='sensitivityButton2.3'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer2.4' style='display: none;'>
+                        <br><a class='lang' key='criterionButton2.4'></a>
+                        <br><a class='lang' key='sensitivityButton2.4'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer2.5' style='display: none;'>
+                        <br><a class='lang' key='criterionButton2.5'></a>
+                        <br><a class='lang' key='sensitivityButton2.5'></a>
+                    </div>
+                    <div class='buttoncontainer' id='c&sButtonContainer2.6' style='display: none;'>
+                        <br><a class='lang' key='criterionButton2.6'></a>
+                        <br><a class='lang' key='sensitivityButton2.6'></a>
+                    </div>
+                </td>
+                <td class='interaction_canvas_area'>
+                    <div class='container'>
+                        <canvas class='interaction_canvas' id='interaction'></canvas>
+                    </div>
+                </td>
+                <td class='interaction_right_area'>
+                    <h3></h3>
+                    <div class='navigation' id='interaction_navigation'></div>
+                    <div class='buttoncontainer' id='pButtonContainer1.a' style='display: inline; color: white;'>
+                        <a class='lang' key='hitButton1.a'></a><br>
+                        <a class='lang' key='missButton1.a'></a><br>
+                        <a class='lang' key='faButton1.a'></a><br>
+                        <a class='lang' key='crButton1.a'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer1.b' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton1.b'></a><br>
+                        <a class='lang' key='missButton1.b'></a><br>
+                        <a class='lang' key='faButton1.b'></a><br>
+                        <a class='lang' key='crButton1.b'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer1.c' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton1.c'></a><br>
+                        <a class='lang' key='missButton1.c'></a><br>
+                        <a class='lang' key='faButton1.c'></a><br>
+                        <a class='lang' key='crButton1.c'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer1.d' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton1.d'></a><br>
+                        <a class='lang' key='missButton1.d'></a><br>
+                        <a class='lang' key='faButton1.d'></a><br>
+                        <a class='lang' key='crButton1.d'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer1.e' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton1.e'></a><br>
+                        <a class='lang' key='missButton1.e'></a><br>
+                        <a class='lang' key='faButton1.e'></a><br>
+                        <a class='lang' key='crButton1.e'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer1.f' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton1.f'></a><br>
+                        <a class='lang' key='missButton1.f'></a><br>
+                        <a class='lang' key='faButton1.f'></a><br>
+                        <a class='lang' key='crButton1.f'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer2.a' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton2.a'></a><br>
+                        <a class='lang' key='missButton2.a'></a><br>
+                        <a class='lang' key='faButton2.a'></a><br>
+                        <a class='lang' key='crButton2.a'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer2.b' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton2.b'></a><br>
+                        <a class='lang' key='missButton2.b'></a><br>
+                        <a class='lang' key='faButton2.b'></a><br>
+                        <a class='lang' key='crButton2.b'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer2.c' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton2.c'></a><br>
+                        <a class='lang' key='missButton2.c'></a><br>
+                        <a class='lang' key='faButton2.c'></a><br>
+                        <a class='lang' key='crButton2.c'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer2.d' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton2.d'></a><br>
+                        <a class='lang' key='missButton2.d'></a><br>
+                        <a class='lang' key='faButton2.d'></a><br>
+                        <a class='lang' key='crButton2.d'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer2.e' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton2.e'></a><br>
+                        <a class='lang' key='missButton2.e'></a><br>
+                        <a class='lang' key='faButton2.e'></a><br>
+                        <a class='lang' key='crButton2.e'></a><br>
+                    </div>
+                    <div class='buttoncontainer' id='pButtonContainer2.f' style='display: none; color: white;'>
+                        <a class='lang' key='hitButton2.f'></a><br>
+                        <a class='lang' key='missButton2.f'></a><br>
+                        <a class='lang' key='faButton2.f'></a><br>
+                        <a class='lang' key='crButton2.f'></a><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <div class='interaction_spacer'>
+                   </div> 
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

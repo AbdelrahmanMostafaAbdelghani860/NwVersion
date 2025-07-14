@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <meta charset='utf-8'>
+
+    <head>
+        <link rel='stylesheet' type='text/css' href='../css/header_bar.css'>
+        <script src='../scripts/URLParameter.js'></script>
+        <script src='../scripts/language_selection.js'></script>
+        <script>
+            const languages = {
+                'en': {
+                    'langSelection': 'Language'
+                },
+                'de': {
+                    'langSelection': 'Sprache'
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const select = document.querySelector('.translate');
+                if (select) {
+                    select.value = localStorage.getItem('lang') || 'de';
+                    updateTranslations();
+                    select.addEventListener('change', function(event) {
+                        const lang = event.target.value;
+                        localStorage.setItem('lang', lang);
+                        updateTranslations();
+                        // Notify parent window of language change
+                        if (window.parent && window.parent !== window) {
+                            window.parent.postMessage({ type: 'languageChange', lang: lang }, '*');
+                        }
+                        // Update all other language selectors
+                        document.querySelectorAll('.translate').forEach(function(element) {
+                            if (element !== event.target) {
+                                element.value = lang;
+                            }
+                        });
+                    });
+                }
+            });
+        </script>
+    </head>
+
+    <body>
+        <span class='left'>
+            <span class='HBelem'>
+                <a class='homeIcon' target='_parent' href='../index.html'><img
+                        src='../resources/icon/home_icon.svg' alt='HOME' /></a>
+            </span>
+            <span class='HBelem'>
+                <input id='backButton' type='image'
+                    src='../resources/icon/arrow_back.svg'
+                    onclick="window.history.back();">
+            </span>
+
+        </span>
+    </body>
+</html>

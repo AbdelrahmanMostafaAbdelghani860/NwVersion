@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+
+  <head>
+    <title class="lang" key="pageTitle"></title>
+    <link rel="stylesheet" href="../css/interaction.css" />
+    <script src="../scripts/interactions/m1u2i1.js" defer></script>
+    <script
+      type="text/javascript"
+      src="../scripts/language_selection.js"></script>
+    <script
+      type="text/javascript"
+      src="../scripts/translations/interactions/dictionary_m1u2i1.js"></script>
+  </head>
+
+  <style>
+    /* Additional styles for canvas and slider */
+    .container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+
+    #slider {
+      margin-top: 10px;
+      width: 100%;
+    }
+    #resetButton {
+      margin-top: 10px;
+      padding: 10px 10px;
+      background-color: #ecf0f5;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: block;
+      width: 10%;
+    }
+
+    #resetButton:hover {
+      background-color: #cad4df;
+    }
+    #groundLabel {
+      margin-top: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+  </style>
+  <body>
+    <div class="interaction_headline">
+      <h2 class="lang" key="headline"></h2>
+    </div>
+    <table class="interaction_table">
+      <tr>
+        <td class="interaction_description" colspan="3">
+          <a class="lang" key="instructions"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="interaction_parameter_area">
+          <h3><a class="lang" key="parameter"></a></h3>
+          <input type="range" id="slider" min="0" max="100" value="50" />
+          <br />
+          <span id="groundLabel">Ground only</span>
+          <button id="resetButton"></button>
+        </td>
+        <td class="interaction_canvas_area">
+          <div class="container">
+            <canvas class="interaction_canvas" id="interaction"></canvas>
+          </div>
+        </td>
+        <td class="interaction_right_area">
+          <h3></h3>
+          <div class="navigation" id="interaction_navigation"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="interaction_spacer"></div>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      const canvas = document.getElementById("interaction");
+      const ctx = canvas.getContext("2d");
+      const slider = document.getElementById("slider");
+      const resetButton = document.getElementById("resetButton");
+
+      const img1 = new Image();
+      const img2 = new Image();
+      img1.src = "../resources/icon/img3.png"; // Image path for img3 : Grund & Peferde
+      img2.src = "../resources/icon/img4.png"; // Image path for img4 nur Pferde
+
+      let imagesLoaded = 0;
+      const images = [img1, img2];
+
+      // Click counter for reset button
+      let resetButtonClickCount = 0;
+
+      // Check if both images are loaded
+      images.forEach((img) => {
+        img.onload = function () {
+          imagesLoaded++;
+          if (imagesLoaded === images.length) {
+            drawImages(slider.value);
+          }
+        };
+      });
+
+      // Function to draw img1 with opacity based on slider value
+      function drawImg1(contrast) {
+        ctx.globalAlpha = 1 - contrast / 100; // img1 fades in as the slider goes left
+        ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
+      }
+
+      // Function to draw img2 with opacity based on slider value
+      function drawImg2(contrast) {
+        ctx.globalAlpha = contrast / 100; // img2 fades out as the slider goes left
+        ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
+      }
+
+ 
+      function drawImages(contrast) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (resetButtonClickCount % 2 === 0) {
+          drawImg1(contrast); // Draw img1 if click count is even
+        } else {
+          drawImg2(contrast); // Draw img2 if click count is odd
+          drawImg1(contrast); // Always draw img1
+        }
+        ctx.globalAlpha = 1; // Reset global alpha to default
+      }
+
+      // Update drawing when slider changes
+      slider.addEventListener("input", function () {
+        const contrast = parseInt(slider.value);
+        drawImages(contrast);
+      });
+
+      // Reset to show img4 bold and img3 more faded when button is clicked
+      resetButton.addEventListener("click", function () {
+        resetButtonClickCount++; // Increment the click count
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.globalAlpha = 0.7; // Set img4 to be more bold
+        ctx.drawImage(img2, 0, 0, canvas.width, canvas.height); // Draw img4
+
+        ctx.globalAlpha = 0.3; // Set img3 to be more faded
+        ctx.drawImage(img1, 0, 0, canvas.width, canvas.height); // Draw img3
+        ctx.globalAlpha = 1; // Reset global alpha to default
+
+        // Check if the click count is even or odd
+        if (resetButtonClickCount % 2 === 0) {
+          resetButton.style.backgroundColor = "white";
+          console.log("Grond & horses should fade together.");
+        } else {
+          // Change button color to blue after being clicked
+          resetButton.style.backgroundColor = "dodgerblue";
+          console.log("Horses stay visible, ground fades.");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+/* General Module Box Styles */
+.module-box {
+    background-color:  #e9ecef; /* Background color for module boxes */
+    border-radius: 12px; /* Rounded corners */
+    border-color: black; /* Subtle shadow */
+    border: 2px solid#80a0b7;
+  
+    
+    padding: 10px 20px 10px 30px ; /* Adjusted padding (top right bottom left) */
+    margin: 15px auto; /* Center horizontally */
+    margin-top: 0px; /* Adds space between the title and the box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.3s ease; /* Smooth transitions including height */
+    width: 90%; /* Adjust width to be more elongated */
+    max-width: 700px; /* Maximum width to avoid too large boxes */
+    /*max-height: 800px; /* Default max height when closed */
+    overflow-y: hidden; /* Initially hide overflow */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    color: #495057;
+}
+/*adjust every module left border color */
+.module-box:nth-of-type(1) {
+  border-left: 10px solid #007bff; 
+}
+
+.module-box:nth-of-type(2) {
+  border-left: 10px solid #28a745; 
+}
+
+.module-box:nth-of-type(3) {
+  border-left: 10px solid #ffc107; 
+}
+
+.module-box:nth-of-type(4) {
+  border-left: 10px solid #dc3545; 
+}
+
+
+/* Animation for opening and closing module boxes */
+.module-box.open {
+    /*max-height: 800px; /* Expand to a larger height when open */
+    overflow-y: visible; /* Enable scrolling when content exceeds height */
+}
+
+/* Use max-height transition for smooth expansion */
+.module-box-content {
+    padding-top: 10px; /* Add padding for content */
+    margin-top: 10px; /* Ensure there's space between title and content */
+    transition: max-height 0.3s ease, padding 0.3s ease; /* Smooth transition for height and padding */
+    max-height: 100%; /* Allow content to fill the box's height */
+    color:#495057;
+}
+
+/* When module-box is open, show content */
+.module-box.open .module-box-content {
+    max-height: none; /* Allow full height usage */
+    overflow: visible; /* Make sure the content is fully visible */
+}
+
+/* Module Box Title Styles */
+.module-box h2 {
+    font-size: 12px; /* heading size */
+    color:#495057; /* text color  */
+    margin: 0 0 15px; /* margin  */
+    cursor: pointer;
+font-family: "Montserrat", sans-serif; /* Modern font */
+    font-weight: 600; /* Slightly bolder text */
+}
+
+/* Module Box Paragraph Styles */
+.module-box p {
+    font-size: 1.1rem; /* font size */
+    color: #495057; /* text color */
+    line-height: 1.8; /* line height for readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+}
+/* Link Styles Inside Module Box */
+.module-box a {
+    color:#495057; /* link color */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s, border-bottom 0.3s; /* Smooth transition */
+    border-bottom: 2px solid transparent; /* Initial border */
+}
+
+.module-box a:hover {
+    border-bottom: 2px solid #495057 ; /* Underline color and thickness on hover */
+}
+/* For visited links */
+.module-box a:visited {
+     /* Same color as unvisited links */
+    text-decoration:underline  40px ;
+ 
+color: black;
+
+}
+
+/* For active links */
+.module-box a:active {
+    color: #495057; /* Same color as normal state */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .module-box {
+        padding: 15px; /* Ensure enough padding inside module boxes */
+        width: 95%; /* Slightly wider for small screens */
+    }
+
+    .module-box h2 {
+        font-size: 1.7rem; /* Adjust heading size inside module box */
+    }
+
+    .module-box p {
+        font-size: 1.5rem; /* Adjust font size for paragraphs */
+    }
+
+    .module-box-content {
+        padding-top: 8px; /* Adjust padding for content */
+        margin-top: 8px; /* Adjust margin for content */
+    }
+}
+
+/* Styles for devices with a max-width of 576px (phones and smaller) */
+@media (max-width: 576px) {
+    .module-box {
+        padding: 10px; /* Adjust padding inside module boxes */
+    }
+
+    .module-box h2 {
+        font-size: 1.6rem; /* Further adjust heading size inside module box */
+    }
+
+    .module-box p {
+        font-size: 1.1rem; /* Further adjust font size for paragraphs */
+    }
+
+    .module-box-content {
+        padding-top: 6px; /* Further adjust padding for content */
+        margin-top: 6px; /* Further adjust margin for content */
+    }
+}

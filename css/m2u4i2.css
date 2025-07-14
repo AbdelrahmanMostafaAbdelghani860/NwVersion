@@ -1,0 +1,199 @@
+:root {
+    --default-shape-color: #101010;
+    --default-secondary-color: #efefef;
+    --default-tertiary-color: #b3adad;
+    --default-bg-color: #bbbbbb;
+}
+
+html {
+    background-color: #23396e;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.main_body {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.top_header {
+    width: 100%;
+    background-color: #23396e;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    vertical-align: middle;
+}
+
+.home_language {
+    width: 2%;
+    min-width: 5px;
+}
+
+.module_headline {
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    word-wrap: break-word;
+}
+
+.navigation {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    
+}
+
+.interaction_headline {
+    text-align: center;
+    font-size: 18px;
+    color: #3B3B3B;
+    padding-top: 1%;
+}
+
+.interaction_table {
+    width: 100%;
+    line-height: 150%;
+}
+
+.interaction_description {
+    padding: 20px 60px 20px 60px;
+    border: 2px solid #3B3B3B;
+    border-radius: 25px;
+    background-color: #3B3B3B;
+    line-height: 1.3;
+    font-size: 18px;
+    color: white;
+    text-align: justify;
+}
+
+.interaction_spacer {
+    margin-top: 2%;
+}
+
+.interaction_parameter_area {
+    width: 17%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #3B3B3B;
+    color: white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.interaction_parameter_headline {
+    text-align: center;
+    font-size: 16px;
+}
+
+.interaction_canvas_area {
+    width: 71%;
+    background-color: #bbbbbb;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bbbbbb;
+}
+
+.interaction_canvas {
+    height: 100%;
+    width: 100%;
+    flex: auto;
+}
+
+.interaction_right_area {
+    width: 12%;
+    background-color:#3B3B3B;
+    color: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+
+#parameterArea {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;  /* Positioniere den Parameterbereich am rechten Rand */
+    background-color: rgba(215, 212, 188, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.button-item input[type="button"] {
+    width: 20px; /* Breite des Buttons */
+    height: 20px; /* Höhe des Buttons */
+    border-radius: 50%; /* Runde Form */
+    border: none; /* Keine Ränder */
+    cursor: pointer; /* Zeiger-Cursor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Schatten */
+    margin: 5px; /* Abstand zwischen den Buttons */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation */
+}
+
+/* Hover-Effekt */
+.button-item input[type="button"]:hover {
+    transform: scale(1.1); /* Button vergrößert sich leicht */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Schatten verstärken */
+}
+
+/* Farben für spezifische Buttons */
+#pinkB {
+    background-color: rgb(183, 49, 167);
+}
+
+#redB {
+    background-color: red;
+}
+
+#greenB {
+    background-color: green;
+}
+
+#pinkB_cp {
+    background-color: rgb(183, 49, 167);
+}
+
+#redB_cp {
+    background-color: red;
+}
+
+#greenB_cp {
+    background-color: green;
+}
+
+#yellowB_cp {
+    background-color: yellow;
+}
+
+#blueB_cp {
+    background-color: blue;
+}
+
+/* Optional: Aktiv-Zustand */
+.button-item input[type="button"]:active {
+    transform: scale(0.9); /* Button wird bei Klick kleiner */
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1); /* Schatten reduzieren */
+}
